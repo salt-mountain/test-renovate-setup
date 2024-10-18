@@ -8,17 +8,17 @@
   "includeForks": false,
   "enabledManagers": ["flux", "helm-values", "kubernetes"],
   "flux": {
-    "fileMatch": [".*/helmrelease\\.ya?ml$"]
+    "fileMatch": ["\\.yaml$"]
   },
   "helm-values": {
-    "fileMatch": [".*/helmrelease\\.ya?ml$"]
+    "fileMatch": ["\\.yaml$"]
   },
   "kubernetes": {
     "fileMatch": ["\\.ya?ml$"]
   },
   "regexManagers": [
     {
-      "fileMatch": ["\\helmrelease\\.yaml$"],
+      "fileMatch": ["\\.yaml$"],
       "matchStrings": [
         "registryUrl=(?<registryUrl>.*?)\n *chart: (?<depName>.*?)\n *version: (?<currentValue>.*)\n"
       ],
