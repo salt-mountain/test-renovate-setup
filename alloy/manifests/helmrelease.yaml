@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: grafana
         namespace: alloy
-      version: "v0.7.0"
+      version: "0.9.2"
   interval: 5m0s
   targetNamespace: alloy
   valuesFrom:
