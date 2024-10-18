@@ -2,5 +2,31 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "platform": "github",
+  "username": "renovate-release",
+  "repositories": ["salt-mountain/test-renovate-setup"],
+  "branchPrefix": "renovate/",
+  "onboarding": true,
+  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+  "includeForks": false,
+  "enabledManagers": ["flux", "helm-values", "kubernetes"],
+  "flux": {
+    "fileMatch": [".*/helmrelease\\.ya?ml$"]
+  },
+  "helm-values": {
+    "fileMatch": [".*/helmrelease\\.ya?ml$"]
+  },
+  "kubernetes": {
+    "fileMatch": ["\\.ya?ml$"]
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["\\.yaml$"],
+      "matchStrings": [
+        "chart:\n *repository: .*?\n *name: (?<depName>.*?)\n *version: (?<currentValue>.*)\n"
+      ],
+      "datasourceTemplate": "helm"
+    }
   ]
 }
